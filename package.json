@@ -1,8 +1,21 @@
 {
   "name": "project-amico",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "project3",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "client": "node scripts/start-client.js",
+    "start": "nodemon server.js",
+    "seed": "node scripts/languageDB.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "author": "Phil, Will, Haig, Christian",
+  "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "mongoose": "^5.0.15",
@@ -10,11 +23,5 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   }
 }
