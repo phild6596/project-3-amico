@@ -4,7 +4,7 @@
   "description": "project3",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js",
+    "server": "node server.js",
     "client": "node scripts/start-client.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
@@ -23,6 +23,7 @@
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "google-translate-api": "^2.3.0",
     "mongoose": "^5.0.15",
     "path": "^0.12.7",
     "react": "^16.3.2",
