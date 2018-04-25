@@ -26,11 +26,7 @@ Router.get("/profiles", function(req, res) {
 });
 Router.post("/message", function(req, res) {
   const topicText = MessageController.createNewMessage(req.body.topicText);
-  const translatedMessage = MessageController.translateMessage(
-    topicText.messageText,
-    "en",
-    "es",
-    function(data) {
+  const translatedMessage = MessageController.translateMessage(topicText.messageText,"en","es",function(data) {
       res.send(data);
     }
   );
