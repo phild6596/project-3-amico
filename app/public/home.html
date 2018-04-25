@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <title>Amico</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <!-- Time Picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha256-+jmym6PChFok5u02khNcYDy5AdfiIN7Y/QCbBqiNgeE=" crossorigin="anonymous"></script>
+
+    <!-- Moment JS -->
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
+
+    <!-- tab icon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/icon.png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- app.js -->
+    
+    <script src="./assets/js/firebase.js"></script>
+    <script src="./assets/js/session.js"></script>
+    <script src="./assets/js/home.js"></script>
+    <script src="./assets/js/profile.js"></script>
+    <script src="./assets/js/topic.js"></script>
+    <script src="./assets/js/topicTextBox.js"></script> 
+    <!-- Css file -->
+    
+
+    <style>
+        /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+        /* this chunk of css is not part of the toolkit :) */
+        body {
+          width: 1px;
+          min-width: 100%;
+          *width: 100%;
+        }
+    </style>
+</head>
+
+<body class="with-top-navbar">
+
+    <!-- navbar starts -->
+    <nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container-fluid col-lg-12">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="#"> <span style="display:inline-block">
+            <img class="manImg" src="assets/img/iconreallywhite.png" alt="brand"></span>
+        </a>
+        </div>
+
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./profile.html">Profile</a></li>
+            <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
+        </ul>
+        
+        <div class="navba-side-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-bell"></span></a></li>
+
+        <li class="nav-item">
+        
+        <div class="dropdown">
+            <button class="btn btn-default .btn-transparent dropdown-toggle navbar-btn navbar-btn-avatar" type="button" id="menu1" data-toggle="dropdown">
+                <img class="rounded-circle img-responsive current-user-avatar" src="">
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="./profile.html">Edit profile</a></li>
+                <div class="divider"></div>
+                <li role="presentation"><a class="logout-action" role="menuitem" tabindex="-1"  >Logout</a></li>
+
+            </ul>
+
+        </div></li></ul>
+        
+        </div>
+        
+        <div>
+        <form class="navbar-form navbar-right">
+            <div class="form-group">
+                <input type="text" class="expand form-control" placeholder="Search">
+            </div>
+        </form>
+        </div>
+
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+        </nav>
+        <!-- navbar ends -->
+
+        <!-- message modal -->
+        <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="msgModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="button" class="btn btn-sm btn-secondary pull-right app-new-msg js-newMsg">New message</button>
+                <h4 class="modal-title">Messages</h4>
+              </div>
+        
+              <div class="modal-body p-a-0 js-modalBody">
+                <div class="modal-body-scroller">
+                  <div class="media-list media-list-users list-group js-msgGroup">
+                    <a href="#" class="list-group-item">
+                      <div class="media">
+                        <span class="media-left">
+                        <img class="img-circle media-object" src="assets/img/avatar-random.png">
+                        </span>
+                        <div class="media-body">
+                          <strong>Random Random</strong>
+                          <div class="media-body-secondary">
+                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam &hellip;
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="media">
+                        <span class="media-left">
+                          <img class="img-circle media-object" src="assets/img/avatar-kyle.png">
+                        </span>
+                        <div class="media-body">
+                          <strong>Kyle Cohen</strong>
+                          <div class="media-body-secondary">
+                            Brunch sustainable placeat vegan bicycle rights yeah…
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="media">
+                        <span class="media-left">
+                          <img class="img-circle media-object" src="assets/img/avatar-phil.png">
+                        </span>
+                        <div class="media-body">
+                          <strong>Phil Dominguez</strong>
+                          <div class="media-body-secondary">
+                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam &hellip;
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <div class="media">
+                          <span class="media-left">
+                            <img class="img-circle media-object" src="assets/img/avatar-will.png">
+                          </span>
+                          <div class="media-body">
+                            <strong>Will Lastname</strong>
+                            <div class="media-body-secondary">
+                              Aenean eu leo quam. Pellentesque ornare sem lacinia quam &hellip;
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- message modal -->
+
+        <!-- body -->
+        <div class="container pt-4 pb-5">
+
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="card card-profile mb-4">
+                      <div class="card-header" style="background-image: url(assets/img/connection.jpg);"></div>
+                      <div class="card-body text-center">
+                        <a href="/profile">
+                          <img class="card-profile-img current-user-avatar" src="">
+                        </a>
+              
+                        <h6 class="card-title">
+                          <a class="text-inherit current-user-name" href="/profile"></a>
+                        </h6>
+              
+                        <p class="mb-4 current-user-bio current-user-bio"></p>
+              
+                      </div>
+                    </div>
+              
+                    <div class="card d-md-block d-md-block mb-4 ">
+                      <div class="card-body">
+                        <h6 class="mb-3">About <small>· <a href="./profile.html">Edit</a></small></h6>
+                        <ul class="list-unstyled list-spaced">
+                          <li><span class="text-muted icon glyphicon glyphicon-calendar mr-3"></span>Went to <a href="#">Los Angeles, CA</a>
+                          </li><li><span class="text-muted icon glyphicon glyphicon-user mr-3"></span>Became friends with <a href="#">Obama</a>
+                          </li><li><span class="text-muted icon glyphicon glyphicon-globe mr-3"></span>Native language <a href="#">Tamil</a>
+                          </li><li><span class="text-muted icon glyphicon glyphicon-home mr-3"></span>Lives in <a href="#">Los Angeles, CA</a>
+                          </li><li><span class="text-muted icon glyphicon glyphicon-map-marker mr-3"></span>From <a href="#">Los Angeles, CA</a>
+                        </li></ul>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="col-md-6 col-sm-12">
+              
+                    <ul class="list-group media-list media-list-stream mb-4 ">
+
+                      <li class="media list-group-item p-4 new-topic-box">
+                        <div class="col-md-12 col-sm-12">
+                                <form accept-charset="UTF-8">
+                                    <textarea class="expand form-control message-input-button-position" id="topic-text-box" name="text" placeholder="Type in your message" rows="1"></textarea>
+                                    <div class="float-right">
+                                    <small class="pull-left text-muted" style="" id="count_message"></small>
+                                    <button type="button" class="btn btn-outline-primary postButton create-topic"  style="margin-left:4px">Post</button>
+                                    </div>
+                                </form>
+                        </div>
+                      </li>
+                      <span id="topic-container">
+                        
+                      </span>
+              
+                      
+                    </ul>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="alert alert-warning alert-dismissible d-none d-md-block" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                      <a class="alert-link" href="/profile">Visit your profile!</a> Check your self, you aren't looking well.
+                    </div>
+              
+                    <div class="card mb-4 d-none d-md-block">
+                      <div class="card-body">
+                      <h6 class="mb-3">New Amicos <small>· <a href="#">View All</a></small></h6>
+                      <ul class="media-list media-list-stream recent-amicos-container">
+                        
+                         
+                      </ul>
+                      </div>
+                      <div class="card-footer">
+                        Message suggested people to know about their side of the story.
+                      </div>
+                    </div>
+              
+                    <div class="card card-link-list">
+                      <div class="card-body">
+                        © 2018 AMICO
+                        <a href="#">About</a>
+                        <a href="#">Help</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Cookies</a>
+                        <a href="#">Ads </a>
+                        <a href="#">Info</a>
+                        <a href="#">Brand</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Status</a>
+                        <a href="#">Apps</a>
+                        <a href="#">Jobs</a>
+                        <a href="#">Advertise</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- body ends -->
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+    </body>
+</html>

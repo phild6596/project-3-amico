@@ -1,0 +1,21 @@
+.jumbotron {
+    background: url('../img/bg.jpg');
+    background-size: cover;
+    color: #fff;
+    padding: 120px 0;
+}
+
+body {
+    font-family: 'Cabin', sans-serif;
+    background: #dfdce3;
+}
+
+h1,h3 {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+}
+
+.center_div{
+    margin: 0 auto;
+    width:80%
+}
