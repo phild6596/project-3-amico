@@ -12,4 +12,4 @@ export const AboutCard = (props) => {
             </ul>
         </div>
     );
-};
+}; 

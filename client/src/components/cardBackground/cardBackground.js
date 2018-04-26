@@ -6,4 +6,4 @@ const cardBackground = ({children}) =>{
     </div>;
 }
    
-export default cardBackground;
+export default cardBackground; 
