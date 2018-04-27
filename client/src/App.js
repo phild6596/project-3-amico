@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 import { AboutCard } from './components/aboutCard/aboutCard';
+import Login from './pages/Login/Login.js'
+import Home from './pages/Home/Home.js'
+import Profile from './pages/Profile/Profile.js'
 
 class App extends Component {
   render() {
@@ -15,18 +19,18 @@ class App extends Component {
 
     return (
 
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-
-        </p>
-      <AboutCard user = {user}>
-       
-        </AboutCard>
+      <Router>
+      <div>
+        
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/profile/:id" component={Profile} />
+          
+        </Switch>
       </div>
+    </Router>
+
     );
   }
 }
