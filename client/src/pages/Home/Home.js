@@ -6,6 +6,30 @@ import MessageButton from "../components/messageButton";
 class Home extends Component {
   state = {};
 
+getTopics = () => {
+  if(firebase.auth().currentUser){
+    firebase.auth().currentUser.getIdToken(true).then(() => {
+      axios.post('/topic/search', {language:'english', idToken:idToken})
+      .then((data) => {
+        topics = [];
+        console.log(data);
+        data.map((topic) => {
+          topics.push(formatTopic(topic));
+        });
+        topicContainer.empty();
+        topicContainer.append(topics);
+      })
+    }).catch((error) => {
+      //POP UP ERROR MODAL
+      console.log("ERROR...", error);
+    });
+  }
+  else{
+    //POPUP NOT SIGNED IN MODAL
+    console.log("NOT LOGGED IN");
+  }
+}
+
 createNewTopic = (text) => {
   if(firebase.auth().currentUser){
     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then((idToken) => {
