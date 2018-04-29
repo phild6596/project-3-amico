@@ -1,9 +1,9 @@
 import React from 'react';
-
-const cardBackground = ({children}) =>{
-    <div style = {{height:180}} className = 'cardBackground'>
-        {children}
-    </div>;
-}
+import background from '../../assets/connection.jpg';
+export const CardBackground = (props) => {
+    return(
+    <div>
+        <img src={background}  alt="sup" ></img>
+    </div>
+)};
    
-export default cardBackground; 

@@ -1,16 +1,21 @@
 const firebaseAdmin = require('../utils/firebaseAdmin.js');
+
+const placeHolderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg';
 const UserController = {
 
 	//Use when returning data from a query
 	createUser : function(data){
-		const placeholderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg'
+		
 		const User = {
 			uid : data.uid,
 			displayName : data.displayName,
+			from: data.from,
 			//email : data.email,
 			bio : data.bio,
 			avatarUrl : data.avatarUrl != null && data.avatarUrl != undefined ? data.avatarUrl : placeholderUrl,
 			createdAt : data.createdAt,
+			nativeLanguage : data.nativeLanguage,
+			studiedLanguage : data.studiedLanguage
 		}
 
 		return User;
@@ -20,9 +25,12 @@ const UserController = {
 		const User = {
 			uid : uid,
 			displayName : data.displayName,
+			from: data.from,
 			//email : data.email,
 			bio : data.bio,
 			avatarUrl : data.photoURL,
+			nativeLanguage : data.nativeLanguage,
+			studiedLanguage : data.studiedLanguage
 
 		}
 		return User;
@@ -51,11 +59,15 @@ const UserController = {
 		
 
 		const UserController = this;
-		const placeholderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg'
+		
 			firebaseAdmin.database().ref('users/' + User.uid).set({
 				uid : User.uid,
 				//email : User.email,
 				displayName : User.displayName,
+				from: data.from,
+				lives : data.lives,
+				studiedLanguage : User.studiedLanguage,
+				nativeLanguage : User.nativeLanguage,
 				avatarUrl : User.avatarUrl != undefined && User.avatarUrl != null? User.avatarUrl : placeholderUrl,
 				createdAt : firebaseAdmin.database.ServerValue.TIMESTAMP
 			}).then(function(){
