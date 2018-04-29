@@ -4,9 +4,9 @@ var db = require("../models");
 let languages = [];
 
 function getLanguages() {
-  db.amico_languages.findAll({}).then(function(dbamico_languages) {
+  /*db.amico_languages.findAll({}).then(function(dbamico_languages) {
     console.log(dbamico_languages);
-  });
+  });*/
 };
 getLanguages();
 
