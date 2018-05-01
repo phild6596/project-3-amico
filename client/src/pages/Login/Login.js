@@ -2,17 +2,8 @@
 import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
+import firebaseConfig from "../../utils/firebase.js";
 
-// Configure Firebase.
-const firebaseConfig = {
-      apiKey: "AIzaSyB7OxOuwuLaEwn9AsHT73dQrxPlnYA7pf0",
-      authDomain: "project-amico.firebaseapp.com",
-      databaseURL: "https://project-amico.firebaseio.com",
-      projectId: "project-amico",
-      storageBucket: "project-amico.appspot.com/",
-      messagingSenderId: "765896442664"
-};
-firebase.initializeApp(firebaseConfig);
 
 // Configure FirebaseUI.
 const uiConfig = {
@@ -23,11 +14,14 @@ const uiConfig = {
   // We will display Google and Facebook as auth providers.
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
   ]
 };
 
 class Login extends React.Component {
+  componentWillMount(){
+    firebase.initializeApp(firebaseConfig);
+  }
   render() {
     return (
       <div>

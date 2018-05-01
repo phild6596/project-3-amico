@@ -7,13 +7,14 @@ const apiRoutes = require('./routes/apiRoutes.js');
 const morgan = require('morgan');
 const bluebird = require("bluebird");
 const mongoose = require("mongoose");
+const expressFileUpload = require('express-fileupload');
 
 	const Server = {
-		port : 8080,
+		port : 3001,
 		app : express(),
 	}
 
-	Server.app.use(express.static(publicDirectory));
+
 	Server.app.use(bodyParser.urlencoded({ extended: true }));
 	Server.app.use(bodyParser.json());
 	Server.app.use(expressFileUpload());
@@ -47,5 +48,5 @@ const mongoose = require("mongoose");
 	}
 	});
 	  
-Server.app.listen(process.env.PORT || Server.port);
+Server.app.listen( Server.port);
 
