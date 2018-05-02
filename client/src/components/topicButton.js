@@ -1,8 +1,10 @@
 import React from "react";
 
-export const TopicButton = props =>
-    <button {...props} type="button" class="btn btn-outline-primary postButton create-topic" style={{ marginLeft:4 }} onClick={()=> {onClick()}}>
+export const TopicButton = props =>{
+    return (
+    <button {...props} type="button" class="btn btn-outline-primary postButton create-topic" onClick={() => props.createNewTopic()}>
         Post
-    </button>;
-
+    </button>
+    )
+}
 export default TopicButton;

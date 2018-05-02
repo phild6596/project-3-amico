@@ -15,3 +15,5 @@ const createNewTopic = (text) => {
         console.log('Not Logged in...');
     }
 }
+
+export default  createNewTopic;
