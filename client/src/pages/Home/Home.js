@@ -41,7 +41,7 @@ class Home extends Component {
  createNewTopic = (text) => {
     if(firebase.auth().currentUser){
       firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
-        axios.post('/topic',{topic:{text:'hello World'},idToken:idToken}).then(function(data){
+        axios.post('/topic',{topic:{text:text},idToken:idToken}).then(function(data){
            console.log(data)
            console.log(text);
            //getTopics();
