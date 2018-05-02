@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Grid, Row } from "react-bootstrap";
-import { AboutCard } from "../../components/aboutCard/aboutCard";
+
+import {Grid,Row} from "react-bootstrap";
+import {AboutCard} from "../../components/aboutCard/aboutCard";
 
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
@@ -14,9 +15,10 @@ class Home extends Component {
     topicTextBox: ""
   };
 
-  setCurrentUserId = userId => {
-    this.setState({ currentUserId: userId });
-  };
+  setCurrentUserId =(userId) => {
+    this.setState({currentUserId : userId});
+  }
+
 
   setCurrentUser = currentUser => {
     this.setState({ currentUser: currentUser });
@@ -36,8 +38,6 @@ class Home extends Component {
     });
   };
 
-//import axios from "axios";
-//import firebase from "firebase";
  createNewTopic = (text) => {
     if(firebase.auth().currentUser){
       firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
@@ -69,9 +69,12 @@ class Home extends Component {
     console.log("Sup from home page");
     this.setLoggedInUserState(userId => {
       this.loadUserProfile(userId);
-      this.createNewTopic("Hello World");
+
+      
     });
-    
+    this.createNewTopic('sup');
+  
+
   }
 
   render() {

@@ -1,34 +1,54 @@
-// Import FirebaseAuth and firebase.
-import React from 'react';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase';
-import firebaseConfig from "../../utils/firebase.js";
+import React, {Component} from 'react';
+import './Login.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {Motion, spring} from 'react-motion';
+import NavigationPanel from './components/NavigationPanel';
+import Modal from './components/Modal';
 
+class App extends Component {
 
-// Configure FirebaseUI.
-const uiConfig = {
-  // Popup signin flow rather than redirect flow.
-  signInFlow: 'popup',
-  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: '/home',
-  // We will display Google and Facebook as auth providers.
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-  ]
-};
+	constructor(props) {
+		super(props);
+		this.state = {
+			mounted: false
+		};
+	}
 
-class Login extends React.Component {
-  componentWillMount(){
-    firebase.initializeApp(firebaseConfig);
-  }
-  render() {
-    return (
-      <div>
-          <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
-      </div>
-    );
-  }
+	componentDidMount() {
+		this.setState({ mounted: true });
+	}
+	
+	handleSubmit = (e) => {
+		this.setState({ mounted: false });
+		e.preventDefault();
+	}
+
+	render() {
+		const {mounted} = this.state;
+
+		let child;
+		let test = 12;
+
+		if(mounted) {
+			child = (
+				<div className="App_test">
+					<NavigationPanel></NavigationPanel>
+					<Modal onSubmit={this.handleSubmit}/>
+				</div>
+			);
+		}
+		
+		return(
+			<div className="App">
+				<ReactCSSTransitionGroup 
+					transitionName="example"
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={300}>
+						{child}
+				</ReactCSSTransitionGroup>
+			</div>
+		);
+	}
 }
 
-export default Login;
+export default App;
