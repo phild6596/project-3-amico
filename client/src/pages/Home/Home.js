@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import {Grid,Row} from "react-bootstrap";
 import {AboutCard} from "../../components/aboutCard/aboutCard";
-
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
 class Home extends Component {
@@ -14,6 +13,26 @@ class Home extends Component {
     },
     topicTextBox : ''
   };
+
+
+  createNewTopic = (text) => {
+    if(firebase.auth().currentUser){
+      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        axios.post('/topic',{topic:{text:text},idToken:idToken}).then(function(data){
+           console.log(data)
+           console.log(text);
+           //getTopics();
+         });
+        }).catch(function(error) {
+            //POP UP ERROR MODAL
+            console.log('Error...' + error);
+          });
+    }
+    else{
+      //POPUP NOT SIGNED IN MODAL
+      console.log('Not logged in...');
+    }
+  }
 
   setCurrentUserId =(userId) => {
     this.setState({currentUserId : userId});
@@ -37,6 +56,7 @@ class Home extends Component {
     });
   }
 
+
   loadUserProfile = (profileId) => {
    axios.get(`/api/profile/${profileId}`).then((response)=>{
      console.log(response.data);
@@ -48,8 +68,9 @@ class Home extends Component {
     console.log("Sup from home page");
     this.setLoggedInUserState((userId)=>{
       this.loadUserProfile(userId);
+      
     });
-    
+    this.createNewTopic('sup');
   
   }
   
