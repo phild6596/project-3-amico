@@ -1,10 +1,18 @@
 const Express = require("express");
 const Router = Express.Router();
+<<<<<<< HEAD
 //const firebaseAdmin = require("../apis/firebaseAdmin.js");
 const UserController = require("../controllers");
 const TopicController = require("../controllers");
 const MessageController = require("../controllers");
 const StorageController = require("../controllers");
+=======
+const firebaseAdmin = require("../utils/firebaseAdmin.js");
+const UserController = require("../controllers/userController");
+const TopicController = require("../controllers/topicController");
+const MessageController = require("../controllers/messageController");
+const StorageController = require("../controllers/storageController");
+>>>>>>> 0b0623e1f9a31069c71bdfa80ea5f6a7ac30bc99
 
 Router.post("/topic/search", function(req, res) {
   const idToken = req.body.idToken;
