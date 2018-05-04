@@ -7,6 +7,7 @@ import {AboutCard} from "../../components/aboutCard/aboutCard";
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
 import { InputBar } from "../../components/topicBar";
+import createNewTopic from "./createNewTopic.js";
 class Home extends Component {
   state = {
     currentUserId: "",
@@ -38,26 +39,6 @@ class Home extends Component {
     });
   };
 
- createNewTopic = (text) => {
-    if(firebase.auth().currentUser){
-      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
-        axios.post('/topic',{topic:{text:text},idToken:idToken}).then(function(data){
-           console.log(data)
-           console.log(text);
-           //getTopics();
-         });
-         console.log(text);
-        }).catch(function(error) {
-            //POP UP ERROR MODAL
-            console.log('Error...' + error);
-          });
-    }
-    else{
-      //POPUP NOT SIGNED IN MODAL
-      console.log('Not logged in...');
-    }
-  }
-
   loadUserProfile = profileId => {
     axios.get(`/api/profile/${profileId}`).then(response => {
       console.log(response.data);
@@ -68,13 +49,9 @@ class Home extends Component {
   componentDidMount() {
     console.log("Sup from home page");
     this.setLoggedInUserState(userId => {
-      this.loadUserProfile(userId);
-
-      
+      this.loadUserProfile(userId);   
     });
-    this.createNewTopic('sup');
-  
-
+    createNewTopic('sup');
   }
 
   render() {

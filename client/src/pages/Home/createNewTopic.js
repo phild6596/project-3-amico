@@ -1,9 +1,11 @@
+import React from "react";
 import axios from "axios";
+import firebase from "firebase";
 
 const createNewTopic = (text) => {
     if(firebase.auth().currentUser){
-        firebase.auth().currentUser.getIdToken(true).then((getIdToken)=> {
-            axios.post('/topic', {topic:{text: 'Hello World'}, idToken:idToken}).then((data)=> {
+        firebase.auth().currentUser.getIdToken(true).then((idToken)=> {
+            axios.post('/topic', {topic:{text:text}, idToken:idToken}).then((data)=> {
                 console.log(data);
                 //getTopics();
             });
