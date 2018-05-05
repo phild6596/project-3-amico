@@ -24,7 +24,7 @@ class Modal extends Component {
 
 	onClickLeft = () =>{
 		this.setState({wasClickedLeft: !this.state.wasClickedLeft}, function() {
-			if (this.state.wasClickedRight == true && this.state.wasClickedLeft == true) {
+			if (this.state.wasClickedRight === true && this.state.wasClickedLeft === true) {
 				this.setState({wasClickedRight: false});
 			};
 		});
@@ -33,7 +33,7 @@ class Modal extends Component {
 
 	onClickRight = () => {
 		this.setState({wasClickedRight: !this.state.wasClickedRight}, function(){
-			if (this.state.wasClickedRight == true && this.state.wasClickedLeft == true) {
+			if (this.state.wasClickedRight === true && this.state.wasClickedLeft === true) {
 				this.setState({wasClickedLeft: false});
 			};
 		});
@@ -42,21 +42,21 @@ class Modal extends Component {
 	render () {
 		let modalContent = null;
 		
-		if (this.state.wasClickedLeft == false && this.state.wasClickedRight == false) {
+		if (this.state.wasClickedLeft === false && this.state.wasClickedRight === false) {
 			modalContent = (
 				<div className='Modal'>
 					<Sign type='signIn' onChange={this.onClickLeft}></Sign>
 					<Sign type='signUp' onChange={this.onClickRight}></Sign>
 				</div>
 			);
-		} else if (this.state.wasClickedLeft == false && this.state.wasClickedRight == true) {
+		} else if (this.state.wasClickedLeft === false && this.state.wasClickedRight === true) {
 			modalContent = (
 				<div className='Modal'>
 					<SignCollapsed type='signIn' onChange={this.onClickLeft}></SignCollapsed>
 					<SignExpanded type='signUp' ></SignExpanded>
 				</div>
 			);
-		} else if (this.state.wasClickedLeft == true && this.state.wasClickedRight == false) {
+		} else if (this.state.wasClickedLeft === true && this.state.wasClickedRight === false) {
 			modalContent = (
 				<div className='Modal'>
 					<SignExpanded type='signIn' ></SignExpanded>

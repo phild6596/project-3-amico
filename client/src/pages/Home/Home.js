@@ -52,7 +52,6 @@ class Home extends Component {
     this.setLoggedInUserState(userId => {
       this.loadUserProfile(userId);   
     });
-    //createNewTopic('sup');
   }
 
   render() {

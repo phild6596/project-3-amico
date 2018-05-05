@@ -7,7 +7,7 @@ const Input = (props) => {
 
 	let iconVisibility = null;
 
-	if (props.type == 'password') {
+	if (props.type === 'password') {
 		iconVisibility = (
 			<MdVisibility className='iconVisibility'/>
 		);
