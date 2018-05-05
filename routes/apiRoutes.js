@@ -33,13 +33,15 @@ Router.post("/message", function(req, res) {
 });
 
 Router.get("/api/profile/:id", function(req, res) {
-  //const idToken = req.headers.idtoken;
+  const idToken = req.headers.idtoken;
+  console.log(idToken);
   //res.send('SUP!');
-  //UserController.validateIdToken(idToken, function(uid) {
+  UserController.validateIdToken(idToken, function() {
     UserController.getUser(req.params.id, function(user) {
+      
       res.send(user);
     });
-  //});
+  });
 });
 
 Router.post("/profile/avatar", function(req, res) {
