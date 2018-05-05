@@ -9,13 +9,18 @@ import firebase from "firebase";
 import { InputBar } from "../../components/inputBar";
 import { TopicButton } from "../../components/topicButton";
 import createNewTopic from "./createNewTopic.js";
+import getTopics from "./getTopics.js";
+
+
 class Home extends Component {
   state = {
     currentUserId: "",
     currentUser: {},
     recentlyJoinedUsers: {},
-    topicTextBox: ""
+    topicText: ""
+ 
   };
+
 
   setCurrentUserId =(userId) => {
     this.setState({currentUserId : userId});
@@ -31,17 +36,22 @@ class Home extends Component {
     firebase.auth().onAuthStateChanged(user => {
       if (firebase.auth().currentUser) {
         console.log("LOGGED IN");
+
         this.setCurrentUserId(user.uid);
+
+        user.getIdToken(true).then((idToken) =>{
+          callback(user.uid, idToken );
+        });
         console.log("USER ID: " + user.uid);
-        callback(user.uid);
+        
       } else {
         console.log("NOT LOGGED IN");
       }
     });
   };
 
-  loadUserProfile = profileId => {
-    axios.get(`/api/profile/${profileId}`).then(response => {
+  loadUserProfile = (profileId, idToken) => {
+    axios.get(`/api/profile/${profileId}`, {headers:{'idToken' :idToken}}).then(response => {
       console.log(response.data);
       this.setCurrentUser(response.data);
     });
@@ -49,8 +59,9 @@ class Home extends Component {
 
   componentDidMount() {
     console.log("Sup from home page");
-    this.setLoggedInUserState(userId => {
-      this.loadUserProfile(userId);   
+    this.setLoggedInUserState((userId,idToken) => {
+      this.loadUserProfile(userId, idToken);
+      getTopics();   
     });
   }
 
@@ -68,7 +79,7 @@ class Home extends Component {
             <InputBar />
             <TopicButton 
               onClick ={createNewTopic}
-            
+              text = {this.state.topicText}
             />
           </Row>
         </Grid>

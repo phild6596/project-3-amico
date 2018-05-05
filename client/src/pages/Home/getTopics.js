@@ -10,11 +10,7 @@ const getTopics = () => {
             .then((data) => {
                 topics = [];
                 console.log(data);
-                data.map((topic) => {
-                    //topics.push(formatopic(topic));
-                })
-                //topicContainer.empty();
-                //topicContainer.append(topics);
+               
             });
         }).catch((error) => {
             console.log("Error in getTopics.js", error);
