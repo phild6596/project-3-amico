@@ -21,6 +21,15 @@ class Home extends Component {
  
   };
 
+  handleInputChange = event => {
+    // Destructure the name and value properties off of event.target
+    // Update the appropriate state
+    const { name, value } = event.target;
+    this.setState({
+      [name] : value
+    });
+    console.log(this.state.topicText);
+  };
 
   setCurrentUserId =(userId) => {
     this.setState({currentUserId : userId});
@@ -76,7 +85,7 @@ class Home extends Component {
         </Grid>
         <Grid>
           <Row>
-            <InputBar />
+            <InputBar name="topicText" value={this.state.topicText} onChange={this.handleInputChange} placeholder="Start a new discussion!" />
             <TopicButton 
               onClick ={createNewTopic}
               text = {this.state.topicText}

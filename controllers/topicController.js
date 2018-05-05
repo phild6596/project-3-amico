@@ -18,6 +18,10 @@
 			return Topic;
 		},
 		createNewTopic:function(uid,text,callback){
+
+			if(!text){
+				return;
+			}
 			const  userRef = firebaseAdmin.database().ref("users/" + uid);
 				userRef.once("value").then(function(snapshot) {
 					
