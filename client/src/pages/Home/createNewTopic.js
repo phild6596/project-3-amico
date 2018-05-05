@@ -9,7 +9,7 @@ const createNewTopic = (text) => {
         firebase.auth().currentUser.getIdToken(true).then((idToken)=> {
             axios.post('/topic', {topic:{text:text}, idToken:idToken}).then((data)=> {
                 console.log(data);
-                //getTopics();
+                getTopics();
             });
         }).catch((error)=> {
             console.log('Error...', error);
