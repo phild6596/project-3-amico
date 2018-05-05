@@ -6,7 +6,8 @@ import {AboutCard} from "../../components/aboutCard/aboutCard";
 
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
-import { InputBar } from "../../components/topicBar";
+import { InputBar } from "../../components/inputBar";
+import { TopicButton } from "../../components/topicButton";
 import createNewTopic from "./createNewTopic.js";
 class Home extends Component {
   state = {
@@ -51,7 +52,7 @@ class Home extends Component {
     this.setLoggedInUserState(userId => {
       this.loadUserProfile(userId);   
     });
-    createNewTopic('sup');
+    //createNewTopic('sup');
   }
 
   render() {
@@ -66,6 +67,10 @@ class Home extends Component {
         <Grid>
           <Row>
             <InputBar />
+            <TopicButton 
+              onClick ={createNewTopic}
+            
+            />
           </Row>
         </Grid>
       </div>
