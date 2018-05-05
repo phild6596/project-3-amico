@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import firebase from "firebase";
 
+import getTopics from "./getTopics.js";
+
 const createNewTopic = (text) => {
     if(firebase.auth().currentUser){
         firebase.auth().currentUser.getIdToken(true).then((idToken)=> {

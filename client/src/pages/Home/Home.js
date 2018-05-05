@@ -65,7 +65,7 @@ class Home extends Component {
         </Grid>
         <Grid>
           <Row>
-          <InputBar />
+            <InputBar />
           </Row>
         </Grid>
       </div>
