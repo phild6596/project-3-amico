@@ -10,8 +10,7 @@ import { InputBar } from "../../components/inputBar";
 import { TopicButton } from "../../components/topicButton";
 import createNewTopic from "./createNewTopic.js";
 import getTopics from "./getTopics.js";
-import AmicosTranslator from "./messageTranslate";
-
+import amicosTranslate from "./topicTranslate";
 
 class Home extends Component {
   state = {
