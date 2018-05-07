@@ -1,5 +1,5 @@
 .navbar {
-  position: fixed;
+  
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,6 +10,9 @@
   height: 60px;
   z-index: 9999;
   border-radius: 0;
+  top:0;
+  position:fixed;
+ 
 }
 
 

@@ -7,9 +7,9 @@ const getTopics = (callback) => {
             axios.post("/topic/search", {language:"english", idToken:idToken})
             .then((data) => {
                 console.log(data);
-                if(callback){
-                    callback(data);
-                }
+                
+                    callback(data.data);
+                
                 
                
             });

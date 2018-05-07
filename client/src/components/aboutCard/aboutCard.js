@@ -4,11 +4,11 @@ import  './aboutCard.css';
 export const AboutCard = (props) => {
     return(
         <div>
-            <Col sm={9} >
+            
                 <div className="about-card about-card-profile about-card-header text-center">
                     
                         <div className = "about-card-body text-center">
-                            <Image src={props.user.avatarUrl}className="about-card-photo "/>
+                            <Image src={props.user.avatarUrl}className="about-card-photo"/>
                         </div>
                         <div className="about-card-body">
                         <ul>
@@ -22,7 +22,7 @@ export const AboutCard = (props) => {
                         </div>
                     
                 </div>
-            </Col>
+            
         </div>
     );
 }; 
