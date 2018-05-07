@@ -2,6 +2,7 @@ const Express = require("express");
 const Router = Express.Router();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //const firebaseAdmin = require("../apis/firebaseAdmin.js");
 const UserController = require("../controllers");
 const TopicController = require("../controllers");
@@ -10,15 +11,20 @@ const StorageController = require("../controllers");
 =======
 =======
 >>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 const firebaseAdmin = require("../utils/firebaseAdmin.js");
 const UserController = require("../controllers/userController");
 const TopicController = require("../controllers/topicController");
 const MessageController = require("../controllers/messageController");
 const StorageController = require("../controllers/storageController");
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 0b0623e1f9a31069c71bdfa80ea5f6a7ac30bc99
 =======
 >>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 
 Router.post("/topic/search", function(req, res) {
   const idToken = req.body.idToken;
@@ -47,6 +53,7 @@ Router.post("/message", function(req, res) {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Router.get("/profiles/:id", function(req, res) {
   const idToken = req.headers.idtoken;
   UserController.validateIdToken(idToken, function(uid) {
@@ -64,6 +71,15 @@ Router.get("/api/profile/:id", function(req, res) {
     });
   //});
 >>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
+Router.get("/api/profile/:id", function(req, res) {
+  const idToken = req.headers.idtoken;
+  UserController.validateIdToken(idToken, function() {
+    UserController.getUser(req.params.id, function(user) {
+      res.send(user);
+    });
+  });
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 });
 
 Router.post("/profile/avatar", function(req, res) {

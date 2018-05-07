@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Import FirebaseAuth and firebase.
 import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -40,6 +41,8 @@ class Login extends React.Component {
 
 export default Login;
 =======
+=======
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 import React, {Component} from 'react';
 import './Login.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -94,4 +97,7 @@ class App extends Component {
 }
 
 export default App;
+<<<<<<< HEAD
 >>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4

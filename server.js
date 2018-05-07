@@ -1,6 +1,7 @@
 const express = require("express");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const mongoose = require("mongoose");
 const bluebird = require("bluebird");
 const bodyParser = require("body-parser");
@@ -54,6 +55,8 @@ app.listen(PORT, () => {
 =======
 =======
 >>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const path = require('path');
@@ -63,6 +66,7 @@ const morgan = require('morgan');
 const bluebird = require("bluebird");
 const mongoose = require("mongoose");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	const Server = {
 		port : 8080,
@@ -71,6 +75,8 @@ const mongoose = require("mongoose");
 
 	Server.app.use(express.static(publicDirectory));
 =======
+=======
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 const expressFileUpload = require('express-fileupload');
 
 	const Server = {
@@ -79,7 +85,10 @@ const expressFileUpload = require('express-fileupload');
 	}
 
 
+<<<<<<< HEAD
 >>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 	Server.app.use(bodyParser.urlencoded({ extended: true }));
 	Server.app.use(bodyParser.json());
 	Server.app.use(expressFileUpload());
@@ -114,6 +123,7 @@ const expressFileUpload = require('express-fileupload');
 	});
 	  
 <<<<<<< HEAD
+<<<<<<< HEAD
 Server.app.listen(process.env.PORT || Server.port);
 
 >>>>>>> 0b0623e1f9a31069c71bdfa80ea5f6a7ac30bc99
@@ -121,3 +131,7 @@ Server.app.listen(process.env.PORT || Server.port);
 Server.app.listen( Server.port);
 
 >>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
+Server.app.listen( Server.port);
+
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4

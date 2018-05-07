@@ -1,5 +1,6 @@
 import React from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 export const AboutCard = (props) => {
     return(
@@ -12,16 +13,26 @@ export const AboutCard = (props) => {
                 <li><span>Studied Language: </span>{props.user.studiedLanguage}</li>
             </ul>
 =======
+=======
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 import {Col,Image} from 'react-bootstrap';
 import  './aboutCard.css';
 export const AboutCard = (props) => {
     return(
         <div>
+<<<<<<< HEAD
             <Col sm={9} >
                 <div className="about-card about-card-profile about-card-header text-center">
                     
                         <div className = "about-card-body text-center">
                             <Image src={props.user.avatarUrl}className="about-card-photo "/>
+=======
+            
+                <div className="about-card about-card-profile about-card-header text-center">
+                    
+                        <div className = "about-card-body text-center">
+                            <Image src={props.user.avatarUrl}className="about-card-photo"/>
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
                         </div>
                         <div className="about-card-body">
                         <ul>
@@ -35,8 +46,12 @@ export const AboutCard = (props) => {
                         </div>
                     
                 </div>
+<<<<<<< HEAD
             </Col>
 >>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
+            
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
         </div>
     );
 }; 
