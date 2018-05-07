@@ -10,7 +10,7 @@ import { InputBar } from "../../components/inputBar";
 import { TopicButton } from "../../components/topicButton";
 import createNewTopic from "./createNewTopic.js";
 import getTopics from "./getTopics.js";
-import amicosTranslate from "./topicTranslate";
+//import amicoRoutes from "./topicRoute.js";
 
 class Home extends Component {
   state = {
@@ -70,7 +70,8 @@ class Home extends Component {
     console.log("Sup from home page");
     this.setLoggedInUserState((userId,idToken) => {
       this.loadUserProfile(userId, idToken);
-      getTopics();   
+      getTopics();
+      //topicTranslate();   
     });
   }
 

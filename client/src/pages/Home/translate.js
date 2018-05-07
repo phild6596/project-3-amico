@@ -1,4 +1,3 @@
-
 import translate from 'google-translate-api';
 
 const amicosTranslate = (topic, nativeLanguage, studiedLanguage, callback) => {
@@ -17,4 +16,4 @@ const amicosTranslate = (topic, nativeLanguage, studiedLanguage, callback) => {
         console.log("topicTranslate error, ", err);
     })
 }
-export default translate;
+export default amicosTranslate;
