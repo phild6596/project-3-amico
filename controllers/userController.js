@@ -1,16 +1,34 @@
 const firebaseAdmin = require('../utils/firebaseAdmin.js');
+<<<<<<< HEAD
+=======
+
+const placeHolderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg';
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
 const UserController = {
 
 	//Use when returning data from a query
 	createUser : function(data){
+<<<<<<< HEAD
 		const placeholderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg'
 		const User = {
 			uid : data.uid,
 			displayName : data.displayName,
+=======
+		
+		const User = {
+			uid : data.uid,
+			displayName : data.displayName,
+			from: data.from,
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
 			//email : data.email,
 			bio : data.bio,
 			avatarUrl : data.avatarUrl != null && data.avatarUrl != undefined ? data.avatarUrl : placeholderUrl,
 			createdAt : data.createdAt,
+<<<<<<< HEAD
+=======
+			nativeLanguage : data.nativeLanguage,
+			studiedLanguage : data.studiedLanguage
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
 		}
 
 		return User;
@@ -20,9 +38,18 @@ const UserController = {
 		const User = {
 			uid : uid,
 			displayName : data.displayName,
+<<<<<<< HEAD
 			//email : data.email,
 			bio : data.bio,
 			avatarUrl : data.photoURL,
+=======
+			from: data.from,
+			//email : data.email,
+			bio : data.bio,
+			avatarUrl : data.photoURL,
+			nativeLanguage : data.nativeLanguage,
+			studiedLanguage : data.studiedLanguage
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
 
 		}
 		return User;
@@ -51,11 +78,22 @@ const UserController = {
 		
 
 		const UserController = this;
+<<<<<<< HEAD
 		const placeholderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg'
+=======
+		
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
 			firebaseAdmin.database().ref('users/' + User.uid).set({
 				uid : User.uid,
 				//email : User.email,
 				displayName : User.displayName,
+<<<<<<< HEAD
+=======
+				from: data.from,
+				lives : data.lives,
+				studiedLanguage : User.studiedLanguage,
+				nativeLanguage : User.nativeLanguage,
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
 				avatarUrl : User.avatarUrl != undefined && User.avatarUrl != null? User.avatarUrl : placeholderUrl,
 				createdAt : firebaseAdmin.database.ServerValue.TIMESTAMP
 			}).then(function(){

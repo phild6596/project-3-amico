@@ -1,5 +1,6 @@
 const express = require("express");
 <<<<<<< HEAD
+<<<<<<< HEAD
 const mongoose = require("mongoose");
 const bluebird = require("bluebird");
 const bodyParser = require("body-parser");
@@ -51,6 +52,8 @@ app.listen(PORT, () => {
   console.log(`🌎 server is now listening on ${PORT}!, dont tell Zuckerberg`);
 });
 =======
+=======
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const path = require('path');
@@ -59,6 +62,7 @@ const apiRoutes = require('./routes/apiRoutes.js');
 const morgan = require('morgan');
 const bluebird = require("bluebird");
 const mongoose = require("mongoose");
+<<<<<<< HEAD
 
 	const Server = {
 		port : 8080,
@@ -66,6 +70,16 @@ const mongoose = require("mongoose");
 	}
 
 	Server.app.use(express.static(publicDirectory));
+=======
+const expressFileUpload = require('express-fileupload');
+
+	const Server = {
+		port : 3001,
+		app : express(),
+	}
+
+
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
 	Server.app.use(bodyParser.urlencoded({ extended: true }));
 	Server.app.use(bodyParser.json());
 	Server.app.use(expressFileUpload());
@@ -99,6 +113,11 @@ const mongoose = require("mongoose");
 	}
 	});
 	  
+<<<<<<< HEAD
 Server.app.listen(process.env.PORT || Server.port);
 
 >>>>>>> 0b0623e1f9a31069c71bdfa80ea5f6a7ac30bc99
+=======
+Server.app.listen( Server.port);
+
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde

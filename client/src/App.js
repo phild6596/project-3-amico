@@ -14,12 +14,20 @@ class App extends Component {
 
       <Router>
       <div>
+<<<<<<< HEAD
         
         <Switch>
           <Route exact path="/home" component={Home} />
           <Route exact path="/profile/:id" component={Profile} />
           <Route exact path="/" component={Login} />
           
+=======
+        <Switch>
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/profile/:id" component={Profile} />
+          <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/" component={Login} />
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
         </Switch>
       </div>
     </Router>
