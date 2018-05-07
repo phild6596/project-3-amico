@@ -120,14 +120,9 @@ class Home extends Component {
     console.log("Sup from home page");
     this.setLoggedInUserState((userId,idToken) => {
       this.loadUserProfile(userId, idToken);
-<<<<<<< HEAD
-      getTopics();
-      //topicTranslate();   
-=======
       getTopics((topics)=>{
         this.listenForTopics();
       })
->>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
     });
     
   }
