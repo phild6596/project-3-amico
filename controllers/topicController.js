@@ -43,12 +43,16 @@
 			console.log('TOPIC: ' + topic);
 
 				 const topicRef = firebaseAdmin.database().ref('topics/' + topic.authorId + '/');
+				 //revisit this
+				 //we want the node ID to be the topic ID before insert
+				 const pushRef = topicRef.push();
 					topicRef.push({
 					authorName : topic.authorName,
 					authorId : topic.authorId,
 					text : topic.text,
 					authorAvatarUrl : topic.authorAvatarUrl,
 					timestamp : firebaseAdmin.database.ServerValue.TIMESTAMP,
+					topicId : topicRef.getKey()
 				});
 		},
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const InputBar = props => {
+export const TopicInput = props => {
   return (
         <div className="col-md-12 col-sm-12">
            <form acceptCharset="UTF-8">
@@ -13,4 +13,4 @@ export const InputBar = props => {
          </div>
   );
 }
-export default InputBar;
+export default TopicInput;
