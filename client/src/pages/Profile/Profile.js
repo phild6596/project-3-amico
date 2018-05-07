@@ -27,28 +27,33 @@ import firebase from "firebase";
     this.setState({targetUser : user});
   }
   
+  
   setLoggedInUserState = (callback) => {
     firebase.initializeApp(firebaseConfig);
     firebase.auth().onAuthStateChanged((user)=>{
       if(firebase.auth().currentUser){
         console.log('LOGGED IN');
         this.setCurrentUserId(user.uid);
-        callback(user.uid);
+        user.getIdToken(true).then((idToken) =>{
+          callback(user.uid, idToken );
+        });
+
+        
       }else{
         console.log('NOT LOGGED IN');
       }
     });
   }
 
-  loadCurrentUserProfile = (profileId)=>{
-    axios.get(`/api/profile/${profileId}`).then((response)=>{
+  loadCurrentUserProfile = (profileId,idToken)=>{
+    axios.get(`/api/profile/${profileId}`,{headers:{'idToken' :idToken}}).then((response)=>{
       console.log('LOADING CURRENT USER');
       console.log(response.data);
       this.setCurrentUser(response.data);
     })
   }
-  loadTargetUserProfile = (profileId) => {
-    axios.get(`/api/profile/${profileId}`).then((response)=>{
+  loadTargetUserProfile = (profileId, idToken) => {
+    axios.get(`/api/profile/${profileId}`,{headers:{'idToken' :idToken}}).then((response)=>{
       console.log('LOADING TARGET USER');
       console.log(response.data);
       this.setTargetUser(response.data);
@@ -59,9 +64,10 @@ import firebase from "firebase";
     console.log("Sup from Profile page");
     
     
-    this.setLoggedInUserState((currentUserId)=>{
+
+    this.setLoggedInUserState((currentUserId, idToken)=>{
       let targetUserId = this.props.match.params.id;
-      this.loadCurrentUserProfile(currentUserId);
+      this.loadCurrentUserProfile(currentUserId, idToken);
 
       if(!targetUserId){
         this.setTargetUserId(currentUserId);
@@ -69,7 +75,7 @@ import firebase from "firebase";
         this.setTargetUserId(targetUserId);
       }
       
-      this.loadTargetUserProfile(this.state.targetUserId);
+      this.loadTargetUserProfile(this.state.targetUserId, idToken);
     });
     
 
