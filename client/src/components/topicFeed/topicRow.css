@@ -1,0 +1,28 @@
+.topic-avatar-photo{
+    height:50px;
+    float:left;
+    margin-right:20px
+    
+}
+.topic-author-name{
+    color:black;
+    font-size:16px;
+    font-weight:bold;
+}
+.topic-text{
+    color:black;
+}
+.topic-timestamp{
+    color:black;
+    font-size:13px;
+    
+}
+
+.topic-row {
+    overflow: hidden;
+    margin-bottom:25px;
+    background-color:rgba(0, 0, 0, 0.03);
+    border:1px solid rgba(0, 0, 0, 0.125);
+    padding:10px;
+}
+
