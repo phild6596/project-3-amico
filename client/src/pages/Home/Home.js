@@ -11,7 +11,7 @@ import { InputBar } from "../../components/inputBar";
 import { TopicButton } from "../../components/topicButton";
 import createNewTopic from "./createNewTopic.js";
 import getTopics from "./getTopics.js";
-//import amicoRoutes from "./topicRoute.js";
+//import topicTranslate from "./topicTranslate.js";
 import Footer from '../../components/footer/Footer.js';
 import NavBar from '../../components/navBar/NavBar.js';
 import './css/home.css';

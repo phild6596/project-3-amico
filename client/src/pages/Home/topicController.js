@@ -7,7 +7,7 @@ import translate from "google-translate-api";
 class TopicControler extends Component {
      createNewMessage = (data) => {
          const Message = {topicText: data};
-         return Message //I think its topic, we'll see
+         return Message; //I think its topic, we'll see
      }
      translateMessage(topic, nativeLanguage, studiedLanguage, callback) {
          amicosTranslate(topic, nativeLanguage, studiedLanguage, callback);
