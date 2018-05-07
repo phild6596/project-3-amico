@@ -2,15 +2,16 @@ import React from "react";
 import axios from "axios";
 import firebase from "firebase";
 
-const getTopics = () => {
-    let topics = [];
-
+const getTopics = (callback) => {
     if(firebase.auth().currentUser) {
         firebase.auth().currentUser.getIdToken(true).then((idToken) => {
             axios.post("/topic/search", {language:"english", idToken:idToken})
             .then((data) => {
-                topics = [];
                 console.log(data);
+                if(callback){
+                    callback(data);
+                }
+                
                
             });
         }).catch((error) => {

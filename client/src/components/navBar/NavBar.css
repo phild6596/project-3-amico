@@ -1,0 +1,58 @@
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  background-color: #d9534f;
+  border: transparent;
+  width: 100%;
+  height: 60px;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+
+.Header-logo {
+  top: 10px;
+  left: 20px;
+  width: 50px;
+  color: aliceblue;
+  }
+
+.title {
+  float: left;
+  font-size: 50px;
+  }
+
+input {
+  border: 1px solid gray;
+  border-radius: 4px;
+  height: 35px;
+  color: gray;
+  padding: 10px;
+}
+
+.login-btn {
+  display: inline-block;
+  white-space: nowrap;
+  border: 1px transparent gray;
+  border-radius: 10ch;
+  padding: 0%;
+  margin-right: 20px;
+  border-style: solid;
+  width: 45px;
+  margin: 1%;
+}
+
+.rounded-circle {
+  border-radius: 50%;
+}
+
+
+
+@media (max-width: 700px) {
+  .Header-logo {
+    display: none;
+  }
+}

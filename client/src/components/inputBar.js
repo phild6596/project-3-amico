@@ -8,7 +8,6 @@ export const InputBar = props => {
              <textarea className="expand form-control message-input-button-position" id="topic-text-box" {...props} rows="1" />
              <div className="float-right">
                <small className="pull-left text-muted"  id="count_message" />
-              
              </div>
            </form>
          </div>

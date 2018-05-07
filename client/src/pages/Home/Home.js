@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import axios from "axios";
 
 import {Grid,Row} from "react-bootstrap";
@@ -10,7 +11,20 @@ import { InputBar } from "../../components/inputBar";
 import { TopicButton } from "../../components/topicButton";
 import createNewTopic from "./createNewTopic.js";
 import getTopics from "./getTopics.js";
+import Footer from '../../components/footer/Footer.js';
+import NavBar from '../../components/navBar/NavBar.js';
+import './css/home.css';
 
+const navLinks = [
+  {
+      title: "Home",
+      href: "/home"
+  },
+  {
+      title: "Profile",
+      href: "/profile"
+  }
+];
 
 class Home extends Component {
   state = {
@@ -18,9 +32,12 @@ class Home extends Component {
     currentUser: {},
     recentlyJoinedUsers: {},
     topicText: ""
- 
   };
 
+  
+
+
+ 
   handleInputChange = event => {
     // Destructure the name and value properties off of event.target
     // Update the appropriate state
@@ -75,23 +92,16 @@ class Home extends Component {
   }
 
   render() {
+    
     return (
+      
       <div>
-        <Grid>
-          <h1>Sup homie</h1>
-          <Row>
-            <AboutCard user={this.state.currentUser} />
-          </Row>
-        </Grid>
-        <Grid>
-          <Row>
-            <InputBar name="topicText" value={this.state.topicText} onChange={this.handleInputChange} placeholder="Start a new discussion!" />
-            <TopicButton 
-              onClick ={createNewTopic}
-              text = {this.state.topicText}
-            />
-          </Row>
-        </Grid>
+
+        <NavBar titleColor= "white" linkColor= "white" navData= {navLinks} avatarPhoto={this.state.currentUser.avatarUrl}/>
+        
+        <Footer />
+
+       
       </div>
     );
   }
