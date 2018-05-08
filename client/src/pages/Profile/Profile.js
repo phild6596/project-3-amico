@@ -26,13 +26,29 @@ import {AboutCard} from "../../components/aboutCard/aboutCard";
 import {CardBackground} from "../../components/cardBackground/cardBackground.js";
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
-  class Profile extends Component {
+import NavBar from '../../components/navBar/NavBar.js';
+  
+
+const navLinks = [
+  {
+      title: "Home",
+      href: "/home"
+  },
+  {
+      title: "Profile",
+      href: "/profile"
+  }
+];
+
+
+class Profile extends Component {
   state = {
     currentUser : {},
     currentUserId : '',
     targetUserId : '',
     targetUser : {}
   };
+
 
   setCurrentUserId =(userId) =>{
     this.setState({currentUserId : userId});
@@ -152,6 +168,7 @@ import firebase from "firebase";
 =======
 >>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
       <div>
+        <NavBar titleColor= "white" linkColor= "white" navData= {navLinks} avatarPhoto={this.state.currentUser.avatarUrl}/>
         <AboutCard user={this.state.targetUser}/>
       </div>
     )

@@ -1,5 +1,6 @@
 .navbar {
-  
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,24 +11,29 @@
   height: 60px;
   z-index: 9999;
   border-radius: 0;
-  top:0;
-  position:fixed;
- 
 }
 
-
-.Header-logo {
+/* .Header-logo {
   top: 10px;
   left: 20px;
   width: 50px;
   color: aliceblue;
   }
+   */
 
-.title {
-  float: left;
-  font-size: 50px;
-  }
+.Header-logo {
+  margin-left: 20%;
+  width: 50px;
+  color: aliceblue;
+  align-items: center;
+}
 
+.right-nav {
+  display: flex;
+  align-items: center;
+  margin-left: 60%;
+}
+  
 input {
   border: 1px solid gray;
   border-radius: 4px;
@@ -54,7 +60,7 @@ input {
 
 
 
-@media (max-width: 700px) {
+@media (max-width: px) {
   .Header-logo {
     display: none;
   }
