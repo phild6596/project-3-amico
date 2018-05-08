@@ -15,9 +15,13 @@ li{list-style-type: none;}
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);             
     border-radius: 0.25rem;
+<<<<<<< HEAD
+    margin-bottom: 10px;
+=======
 
     margin-bottom: 10px;
     color:black;
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
   }
   
   .about-card-photo{

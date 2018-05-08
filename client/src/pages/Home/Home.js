@@ -1,4 +1,27 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
+class Home extends Component {
+  state = {};
+
+  componentDidMount() {
+    console.log("Sup from home page");
+  }
+
+  render() {
+    return (<h1>Sup homie</h1>);
+=======
+import axios from "axios";
+
+import {Grid,Row} from "react-bootstrap";
+import {AboutCard} from "../../components/aboutCard/aboutCard";
+
+import firebaseConfig from "../../utils/firebase.js";
+import firebase from "firebase";
+import { InputBar } from "../../components/topicBar";
+=======
 
 import axios from "axios";
 
@@ -29,11 +52,15 @@ const navLinks = [
   }
 ];
 
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 class Home extends Component {
   state = {
     currentUserId: "",
     currentUser: {},
     recentlyJoinedUsers: {},
+<<<<<<< HEAD
+    topicTextBox: ""
+=======
     topicText: "",
     topics :[]
   };
@@ -70,6 +97,7 @@ class Home extends Component {
       [name] : value
     });
     console.log(this.state.topicText);
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
   };
 
   setCurrentUserId =(userId) => {
@@ -86,6 +114,11 @@ class Home extends Component {
     firebase.auth().onAuthStateChanged(user => {
       if (firebase.auth().currentUser) {
         console.log("LOGGED IN");
+<<<<<<< HEAD
+        this.setCurrentUserId(user.uid);
+        console.log("USER ID: " + user.uid);
+        callback(user.uid);
+=======
 
         this.setCurrentUserId(user.uid);
 
@@ -94,19 +127,76 @@ class Home extends Component {
         });
         console.log("USER ID: " + user.uid);
         
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
       } else {
         console.log("NOT LOGGED IN");
       }
     });
   };
 
+<<<<<<< HEAD
+ createNewTopic = (text) => {
+    if(firebase.auth().currentUser){
+      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        axios.post('/topic',{topic:{text:text},idToken:idToken}).then(function(data){
+           console.log(data)
+           console.log(text);
+           //getTopics();
+         });
+         console.log(text);
+        }).catch(function(error) {
+            //POP UP ERROR MODAL
+            console.log('Error...' + error);
+          });
+    }
+    else{
+      //POPUP NOT SIGNED IN MODAL
+      console.log('Not logged in...');
+    }
+  }
+
+  loadUserProfile = profileId => {
+    axios.get(`/api/profile/${profileId}`).then(response => {
+=======
   loadUserProfile = (profileId, idToken) => {
     axios.get(`/api/profile/${profileId}`, {headers:{'idToken' :idToken}}).then(response => {
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
       console.log(response.data);
       this.setCurrentUser(response.data);
     });
   };
 
+<<<<<<< HEAD
+  componentDidMount() {
+    console.log("Sup from home page");
+    this.setLoggedInUserState(userId => {
+      this.loadUserProfile(userId);
+
+      
+    });
+    this.createNewTopic('sup');
+  
+
+  }
+
+  render() {
+    return (
+      <div>
+        <Grid>
+          <h1>Sup homie</h1>
+          <Row>
+            <AboutCard user={this.state.currentUser} />
+          </Row>
+        </Grid>
+        <Grid>
+          <Row>
+          <InputBar />
+          </Row>
+        </Grid>
+      </div>
+    );
+>>>>>>> d5b3c3cf6a21ebe211c58fe6eca84ffdc7e7ffde
+=======
   
     convertTimeStamp = (time)=>{
       
@@ -160,6 +250,7 @@ class Home extends Component {
        
       </div>
     );
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
   }
 }
 

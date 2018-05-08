@@ -18,10 +18,13 @@
 			return Topic;
 		},
 		createNewTopic:function(uid,text,callback){
+<<<<<<< HEAD
+=======
 
 			if(!text){
 				return;
 			}
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 			const  userRef = firebaseAdmin.database().ref("users/" + uid);
 				userRef.once("value").then(function(snapshot) {
 					
@@ -43,16 +46,22 @@
 			console.log('TOPIC: ' + topic);
 
 				 const topicRef = firebaseAdmin.database().ref('topics/' + topic.authorId + '/');
+<<<<<<< HEAD
+=======
 				 //revisit this
 				 //we want the node ID to be the topic ID before insert
 				 const pushRef = topicRef.push();
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 					topicRef.push({
 					authorName : topic.authorName,
 					authorId : topic.authorId,
 					text : topic.text,
 					authorAvatarUrl : topic.authorAvatarUrl,
 					timestamp : firebaseAdmin.database.ServerValue.TIMESTAMP,
+<<<<<<< HEAD
+=======
 					topicId : topicRef.getKey()
+>>>>>>> ab6dd8eb3a392a169cc7d6e4f8ac1fd9dc000cf4
 				});
 		},
 
