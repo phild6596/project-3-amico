@@ -53,13 +53,7 @@ class Home extends Component {
           console.log(snapObject[user][topic]);
          this.setState({topics:this.state.topics.concat(snapObject[user][topic])});
         }
-        
-        
       }
-       
-
-      
-      
     });
   }
   handleInputChange = event => {
@@ -113,7 +107,10 @@ class Home extends Component {
       const convertedTime = moment.tz(time, moment.tz.guess()).format('h:mm:ss A - MM/DD/YYYY');
       return convertedTime;
     }
-  
+  handleSubmit = ()=>{
+    createNewTopic(this.state.topicText)
+    this.setState({topicText:''});
+  }
     
   componentDidMount() {
     console.log("Sup from home page");
@@ -139,8 +136,10 @@ class Home extends Component {
             <AboutCard user={this.state.currentUser}/>
           </Col>
           <Col xs={6} md={6} className="chat-container">
+
+
             <TopicInput name="topicText" onChange={this.handleInputChange} value={this.state.topicText}/>
-            <TopicButton onClick={createNewTopic} text={this.state.topicText}/>
+            <TopicButton handleSubmit={this.handleSubmit}/>
             
             {this.state.topics.length ? (this.state.topics.map((topic,index)=>{
               topic.timestamp = this.convertTimeStamp(topic.timestamp);
