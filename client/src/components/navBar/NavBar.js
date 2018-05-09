@@ -57,12 +57,14 @@ const NavBar = createReactClass({
                 <div className= "collapse navbar-collapse" id= "nav-collapse">
                     <ul className= "nav navbar-nav">{this.props.navData.map(createLinkItem)}</ul>
                 </div>
+                <div className ="right-nav">
                 <form onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="Search" onChange={this.handleChange} />
                 </form>
                 <button className="right login-btn btn-default .btn-transparent dropdown-toggle navbar-btn navbar-btn-avatar" type="button" data-toggle="dropdown">
                 <img src={this.props.avatarPhoto} alt="user_pic" className="rounded-circle img-responsive" />
                 </button>
+                </div>
             </nav>    
             </div> 
         )

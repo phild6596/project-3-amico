@@ -1,16 +1,33 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Grid,Row,Col} from "react-bootstrap";
 import {AboutCard} from "../../components/aboutCard/aboutCard";
 import {CardBackground} from "../../components/cardBackground/cardBackground.js";
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
-  class Profile extends Component {
+import NavBar from '../../components/navBar/NavBar.js';
+import styling from './css/profile.css';
+
+const navLinks = [
+  {
+      title: "Home",
+      href: "/home"
+  },
+  {
+      title: "Profile",
+      href: "/profile"
+  }
+];
+
+
+class Profile extends Component {
   state = {
     currentUser : {},
     currentUserId : '',
     targetUserId : '',
     targetUser : {}
   };
+
 
   setCurrentUserId =(userId) =>{
     this.setState({currentUserId : userId});
@@ -84,7 +101,10 @@ import firebase from "firebase";
   render() {
     return (
       <div>
-        <AboutCard user={this.state.targetUser}/>
+        <NavBar titleColor= "white" linkColor= "white" navData= {navLinks} avatarPhoto={this.state.currentUser.avatarUrl}/>
+        <Grid className="container">
+          <AboutCard user={this.state.targetUser}/>
+        </Grid>
       </div>
     )
     
