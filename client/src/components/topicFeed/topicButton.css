@@ -1,4 +1,16 @@
 .postButton{
     background-color:#d9534f;
+    text-align: center;
     ;
+}
+
+.btn {
+height: 40px;
+width: 100px;
+box-shadow: 4px 4px 4px #999;
+font-size: 1em;
+text-align: center;
+vertical-align: middle;
+color: white;
+margin: 10px 10px 10px 0px;
 }
