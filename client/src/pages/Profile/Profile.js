@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import {Grid,Row,Col} from "react-bootstrap";
-import {AboutCard} from "../../components/aboutCard/aboutCard";
+import {ProfileCard} from "../../components/profileCard/profileCard";
 import {CardBackground} from "../../components/cardBackground/cardBackground.js";
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
@@ -102,9 +102,11 @@ class Profile extends Component {
     return (
       <div>
         <NavBar titleColor= "white" linkColor= "white" navData= {navLinks} avatarPhoto={this.state.currentUser.avatarUrl}/>
-        <Grid className="container">
-          <AboutCard user={this.state.targetUser}/>
-        </Grid>
+      <div>
+      <Grid className="container">
+        <ProfileCard user={this.state.targetUser}/>
+      </Grid>
+      </div>
       </div>
     )
     
