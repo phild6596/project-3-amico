@@ -3,7 +3,7 @@ const firebaseAdmin = require('./firebaseAdmin.js');
 const gcloud = require('google-cloud');
 const gcs = gcloud.storage({
   projectId: 'project-amico',
-  keyFilename: PROCESS.ENV.SERVICEACCOUNT || '../config/serviceAccount.json'
+  keyFilename: process.env.SERVICEACCOUNT || '../config/serviceAccount.json'
 });
 
 
