@@ -46,21 +46,29 @@ class Home extends Component {
     const topicReference = firebase.database().ref('topics/');
     topicReference.on('value', (snapshot) => {
       this.setState({topics:[]});
-      const snapObject = snapshot.val();
-      for(let user in snapObject){
+
+      getTopics((topics)=>{
+        topics.map((topic)=>{
+         topic.timestamp = this.convertTimeStamp(topic.timestamp);
+        })
+        this.setState({topics:topics});
+      })
+      //const snapObject = snapshot.val();
+
+      /*for(let user in snapObject){
         
         for(let topic in snapObject[user]){
-          console.log(snapObject[user][topic]);
+         snapObject[user][topic].timestamp = this.convertTimeStamp(snapObject[user][topic].timestamp);
          this.setState({topics:this.state.topics.concat(snapObject[user][topic])});
         }
-        
-        
-      }
-       
-
-      
-      
+      }*/
     });
+  }
+
+  createNewUser = (userId, idToken) =>{
+    axios.post('/profile', {idToken : idToken, uid:userId}).then((data)=>{
+      this.loadUserProfile(userId,idToken);
+    })
   }
   handleInputChange = event => {
     // Destructure the name and value properties off of event.target
@@ -113,15 +121,19 @@ class Home extends Component {
       const convertedTime = moment.tz(time, moment.tz.guess()).format('h:mm:ss A - MM/DD/YYYY');
       return convertedTime;
     }
-  
+  handleSubmit = ()=>{
+    createNewTopic(this.state.topicText)
+    this.setState({topicText:''});
+  }
     
   componentDidMount() {
     console.log("Sup from home page");
     this.setLoggedInUserState((userId,idToken) => {
       this.loadUserProfile(userId, idToken);
-      getTopics((topics)=>{
+      
+      //getTopics((topics)=>{
         this.listenForTopics();
-      })
+      //})
     });
     
   }
@@ -139,11 +151,12 @@ class Home extends Component {
             <AboutCard user={this.state.currentUser}/>
           </Col>
           <Col xs={6} md={6} className="chat-container">
+
+
             <TopicInput name="topicText" onChange={this.handleInputChange} value={this.state.topicText}/>
-            <TopicButton onClick={createNewTopic} text={this.state.topicText}/>
+            <TopicButton handleSubmit={this.handleSubmit}/>
             
             {this.state.topics.length ? (this.state.topics.map((topic,index)=>{
-              topic.timestamp = this.convertTimeStamp(topic.timestamp);
               return (
                 <TopicRow key={index} topic={topic}/>
               )}

@@ -39,46 +39,57 @@
 			
 			
 		},
-		insertTopic : function(topic){
-			console.log('TOPIC: ' + topic);
+		insertTopic : (topic)=>{
+			console.log('TOPIC V2: ' + topic);
+			const topicRef = firebaseAdmin.database().ref('topics/');
+			//revisit this
+			//we want the node ID to be the topic ID before insert
+			const pushRef = topicRef.push();
+			   topicRef.push({
+			   authorName : topic.authorName,
+			   authorId : topic.authorId,
+			   text : topic.text,
+			   authorAvatarUrl : topic.authorAvatarUrl,
+			   timestamp : firebaseAdmin.database.ServerValue.TIMESTAMP,
+			   
+		   });
 
-				 const topicRef = firebaseAdmin.database().ref('topics/' + topic.authorId + '/');
-				 //revisit this
-				 //we want the node ID to be the topic ID before insert
-				 const pushRef = topicRef.push();
-					topicRef.push({
-					authorName : topic.authorName,
-					authorId : topic.authorId,
-					text : topic.text,
-					authorAvatarUrl : topic.authorAvatarUrl,
-					timestamp : firebaseAdmin.database.ServerValue.TIMESTAMP,
-					topicId : topicRef.getKey()
-				});
 		},
-
+		
 		getTopics : function(desiredLanguage, callback){
 			const TopicController = this;
 
 	      	const queryTopicOwners = firebaseAdmin.database().ref("topics").orderByChild('timestamp');
-	      	queryTopicOwners.once("value")
-	        	.then(function(snapshot) {
-	        		const topics = [];
-	          		snapshot.forEach(function(user) {
-	           
-	            		const userId = user.key;
-	            
-		            	const userTopicData = user.val();
+	      	queryTopicOwners.once("value", function(snapshot) {
+				const topics = [];
+				snapshot.forEach(function(child) {
+					//console.log(child.key+': '+child.val());
+					topics.unshift(TopicController.createTopic(child.val()));
+				});
 
-		            	for(topicId in userTopicData){
-			              	const topic = TopicController.createTopic(userTopicData[topicId]);
-			              	console.log(topic);
-			              	topics.unshift(topic);
-		            	}  
-           	    
-	        		});
-	        		callback(topics);
-	      		});
-	    	}
+				callback(topics);
+			});
+			
+
+	        	/*.then(function(snapshot) {
+					const topicSnapshots = snapshot.val();
+					let topics = [];
+					topicSnaphots.forEach((topic)=>{
+						console.log(topic);
+						//topics.push(TopicController.createNewTopic(topic));
+					})
+					/*for(key in topicSnapshots){
+						const topic = topicSnapshots[key];
+						topics.push(TopicController.createTopic(topic));
+					}
+					
+					callback(topics)
+				}).catch((error)=>{
+					callback(error);
+				});*/
+	      		
+	    },
+		
 	}
 
 
