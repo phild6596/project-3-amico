@@ -46,15 +46,29 @@ class Home extends Component {
     const topicReference = firebase.database().ref('topics/');
     topicReference.on('value', (snapshot) => {
       this.setState({topics:[]});
-      const snapObject = snapshot.val();
-      for(let user in snapObject){
+
+      getTopics((topics)=>{
+        topics.map((topic)=>{
+         topic.timestamp = this.convertTimeStamp(topic.timestamp);
+        })
+        this.setState({topics:topics});
+      })
+      //const snapObject = snapshot.val();
+
+      /*for(let user in snapObject){
         
         for(let topic in snapObject[user]){
-          console.log(snapObject[user][topic]);
+         snapObject[user][topic].timestamp = this.convertTimeStamp(snapObject[user][topic].timestamp);
          this.setState({topics:this.state.topics.concat(snapObject[user][topic])});
         }
-      }
+      }*/
     });
+  }
+
+  createNewUser = (userId, idToken) =>{
+    axios.post('/profile', {idToken : idToken, uid:userId}).then((data)=>{
+      this.loadUserProfile(userId,idToken);
+    })
   }
   handleInputChange = event => {
     // Destructure the name and value properties off of event.target
@@ -116,9 +130,10 @@ class Home extends Component {
     console.log("Sup from home page");
     this.setLoggedInUserState((userId,idToken) => {
       this.loadUserProfile(userId, idToken);
-      getTopics((topics)=>{
+      
+      //getTopics((topics)=>{
         this.listenForTopics();
-      })
+      //})
     });
     
   }
@@ -142,7 +157,6 @@ class Home extends Component {
             <TopicButton handleSubmit={this.handleSubmit}/>
             
             {this.state.topics.length ? (this.state.topics.map((topic,index)=>{
-              topic.timestamp = this.convertTimeStamp(topic.timestamp);
               return (
                 <TopicRow key={index} topic={topic}/>
               )}

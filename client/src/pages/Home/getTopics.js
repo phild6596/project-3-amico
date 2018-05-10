@@ -9,7 +9,7 @@ const getTopics = (callback) => {
             .then((data) => {
                 console.log(data);
                 
-                    callback(data.data);
+                callback(data.data);
                 
                 
                
