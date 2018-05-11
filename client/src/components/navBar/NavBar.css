@@ -9,8 +9,11 @@
   border: transparent;
   width: 100%;
   height: 60px;
-  z-index: 9999;
+  border-bottom-style: solid;
+  border-bottom-width: 0.5px;
+  border-bottom-color: aliceblue;
   border-radius: 0;
+  z-index: 999;
 }
 
 /* .Header-logo {
@@ -31,7 +34,7 @@
 .right-nav {
   display: flex;
   align-items: center;
-  margin-left: 60%;
+  margin-left: 62%;
 }
   
 input {
@@ -48,7 +51,6 @@ input {
   border: 1px transparent gray;
   border-radius: 10ch;
   padding: 0%;
-  margin-right: 20px;
   border-style: solid;
   width: 45px;
   margin: 1%;

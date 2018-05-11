@@ -101,11 +101,11 @@ class Profile extends Component {
   render() {
     return (
       <div>
+      <div className="nav-style">
         <NavBar titleColor= "white" linkColor= "white" navData= {navLinks} avatarPhoto={this.state.currentUser.avatarUrl}/>
-      <div>
-      <Grid className="container">
+      </div>
+      <div className="cover">        
         <ProfileCard user={this.state.targetUser}/>
-      </Grid>
       </div>
       </div>
     )

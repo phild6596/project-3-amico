@@ -1,0 +1,9 @@
+.nav-style {
+    position: fixed;
+    z-index: 999;
+}
+
+.cover {
+    position: relative;
+    margin-top: 50px;
+}
