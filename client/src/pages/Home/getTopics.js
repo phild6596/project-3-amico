@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import firebase from "firebase";
+import topicTranslate from "./topicTranslate";
 
 const getTopics = (callback) => {
     if(firebase.auth().currentUser) {
@@ -8,7 +9,7 @@ const getTopics = (callback) => {
             axios.post("/topic/search", {language:"english", idToken:idToken})
             .then((data) => {
                 console.log(data);
-                
+                topicTranslate(callback);
                 callback(data.data);
                 
                 
