@@ -28,5 +28,7 @@ export const AboutCard = (props) => {
                 </div>
             </div>
         </div>
+
+        
     );
 }; 
