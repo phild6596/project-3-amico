@@ -7,7 +7,8 @@ const getTopics = (callback) => {
         firebase.auth().currentUser.getIdToken(true).then((idToken) => {
             axios.post("/topic/search", {language:"english", idToken:idToken})
             .then((data) => {
-                console.log(data);
+                //console.log('Within data.data in getTopics');
+                //console.log(data.data);
                 
                 callback(data.data);
                 

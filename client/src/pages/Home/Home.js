@@ -39,7 +39,6 @@ class Home extends Component {
   };
 
   
-
   
   listenForTopics = ()=>{
     
@@ -50,18 +49,10 @@ class Home extends Component {
       getTopics((topics)=>{
         topics.map((topic)=>{
          topic.timestamp = this.convertTimeStamp(topic.timestamp);
-        })
+        });
         this.setState({topics:topics});
-      })
-      //const snapObject = snapshot.val();
-
-      /*for(let user in snapObject){
-        
-        for(let topic in snapObject[user]){
-         snapObject[user][topic].timestamp = this.convertTimeStamp(snapObject[user][topic].timestamp);
-         this.setState({topics:this.state.topics.concat(snapObject[user][topic])});
-        }
-      }*/
+      });
+      
     });
   }
 
