@@ -1,7 +1,6 @@
 import React from 'react';
-import {Col,Image} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 import  './profileCard.css';
-import CoverImage from '../../assets/connection.jpg';
 
 export const ProfileCard = (props) => {
     return(
@@ -20,7 +19,7 @@ export const ProfileCard = (props) => {
         <nav className="profile-header-nav">
             <ul className="nav nav-tabs">
                 <li className="active">
-                <a href="#">About you</a>
+                <a>About you</a>
                 </li>
             </ul>
         </nav>

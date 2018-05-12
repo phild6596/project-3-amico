@@ -1,6 +1,6 @@
 import React from 'react';
-import {Col,Image} from 'react-bootstrap';
-import  './aboutCard.css';
+import {Image} from 'react-bootstrap';
+import './aboutCard.css';
 export const AboutCard = (props) => {
     return(
 

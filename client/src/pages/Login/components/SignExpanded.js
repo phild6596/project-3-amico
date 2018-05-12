@@ -2,8 +2,6 @@ import React , {Component} from 'react';
 import PropTypes from 'prop-types';
 import '../Login.css';
 import {Motion, spring} from 'react-motion';
-import Input from './Input';
-import SubmitButton from './SubmitButton';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import firebaseConfig from "../../../utils/firebase.js";
@@ -57,7 +55,7 @@ class SignExpanded extends Component {
 				flexVal: spring(this.state.flexState ? 8 : 1)
 			}} onRest={this.isFinished}>
 			{({flexVal}) =>
-			<div className={this.props.type=='signIn' ? 'signInExpanded' : 'signUpExpanded'} style={{
+			<div className={this.props.type==='signIn' ? 'signInExpanded' : 'signUpExpanded'} style={{
 				flexGrow: `${flexVal}`
 			}}>
 				<Motion style={{ 
@@ -70,7 +68,7 @@ class SignExpanded extends Component {
 							transform: `translate3d(0, ${y}px, 0)`,
 							opacity: `${opacity}`
 						}}>
-							<h2>{this.props.type == 'signIn' ? 'SIGN IN' : 'SIGN UP'}</h2>
+							<h2>{this.props.type === 'signIn' ? 'SIGN IN' : 'SIGN UP'}</h2>
 							<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
 							{/*<Input
 								id="login"

@@ -1,7 +1,6 @@
 import React from 'react';
 import '../Login.css';
 import {MdLocationOn} from 'react-icons/lib/md';
-import {FaCircle} from 'react-icons/lib/fa';
 
 const NavigationPanel = (props) => {
 

@@ -1,16 +1,20 @@
-.postButton{
-    background-color:#d9534f;
-    text-align: center;
-    ;
-}
+
+
+.btn-outline-primary {
+    color: #3097D1;
+    background-color: transparent;
+    background-image: none;
+    border-color: #3097D1;
+    margin-top: 2px;
+  }
 
 .btn {
-height: 40px;
-width: 100px;
-box-shadow: 4px 4px 4px #999;
-font-size: 1em;
-text-align: center;
-vertical-align: middle;
-color: white;
-margin: 10px 10px 10px 0px;
-}
+    float: right;
+    padding: 0.25rem 0.5rem;
+    line-height: 1.5;
+    border-radius: 0.5rem;
+    margin-top: 2%;
+    width: 70px;
+    height: 35px;
+  }
+  

@@ -1,11 +1,11 @@
 import React from "react";
-import styling from "./topicButton.css";
+import "./topicButton.css";
 
 export const TopicButton = props =>{
     return (
-    <button  type="button" className="btn btn-outline-primary postButton create-topic" onClick={props.handleSubmit}>
-        Post Topic
-    </button>
+    <div>
+    <button  type="button" className="btn btn-outline-primary postButton create-topic" onClick={props.handleSubmit}>Post</button>
+    </div>
     )
 }
 export default TopicButton;

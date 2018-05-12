@@ -32,16 +32,16 @@ const NavBar = createReactClass({
             return <NavItem aStyle= {linkStyle} key= {item.title + index} href= {item.href} title= {item.title} />;
         };
 
-        class NameForm extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = {value: ''};
-            }
+        // class NameForm extends React.Component {
+        //     constructor(props) {
+        //         super(props);
+        //         this.state = {value: ''};
+        //     }
 
-            handleChange(event) {
-            this.setState({value: event.target.value});
-            } 
-        }
+        //     handleChange(event) {
+        //     this.setState({value: event.target.value});
+        //     } 
+        // }
 
         return (
             <div>
