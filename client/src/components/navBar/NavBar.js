@@ -46,25 +46,25 @@ const NavBar = createReactClass({
         return (
             <div>
             <nav className= "navbar navbar-default">
-                <a href= "#"><img src={logo} alt="logo" className="Header-logo" /></a>
-                <div className= "navbar-header">
-                    <button type= "button" className= "navbar-toggle collapsed" data-toggle= "collapse" data-target="#nav-collapse">
-                        <span className= "icon-bar"></span>
-                        <span className= "icon-bar"></span>
-                        <span className= "icon-bar"></span>
-                    </button>
-                </div>
-                <div className= "collapse navbar-collapse" id= "nav-collapse">
-                    <ul className= "nav navbar-nav">{this.props.navData.map(createLinkItem)}</ul>
-                </div>
-                <div className ="right-nav">
+            <div className="container-fluid col-lg-12 col-sm-12"> 
+            <div className="navbar-side-left navbar-left">
+            <a href= "/home"><img src={logo} alt="logo" className="Header-logo" /></a>
+            <div className= "nav collapse navbar-collapse" id= "nav-collapse">
+                <ul className= "nav navbar-nav">{this.props.navData.map(createLinkItem)}</ul>
+            </div>
+            </div>
+
+            <div className ="navbar-side-right navbar-right">
                 <form onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="Search" onChange={this.handleChange} />
+                    <input type="text" placeholder="Search" onChange={this.handleChange} />
                 </form>
-                <button className="right login-btn btn-default .btn-transparent dropdown-toggle navbar-btn navbar-btn-avatar" type="button" data-toggle="dropdown">
-                <img src={this.props.avatarPhoto} alt="user_pic" className="rounded-circle img-responsive" />
-                </button>
-                </div>
+                <div className="dropdown">
+                    <button className="login-btn btn-default .btn-transparent dropdown-toggle navbar-btn navbar-btn-avatar" type="button" data-toggle="dropdown">
+                        <img src={this.props.avatarPhoto} alt="user_pic" className="rounded-circle img-responsive" />
+                    </button>
+                </div>                    
+            </div>
+            </div> 
             </nav>    
             </div> 
         )
