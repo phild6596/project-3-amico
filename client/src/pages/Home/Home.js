@@ -145,8 +145,8 @@ class Home extends Component {
           <Col xs={6} md={6} className="chat-container">
 
 
-            <TopicInput name="topicText" onChange={this.handleInputChange} value={this.state.topicText}/>
-            <TopicButton handleSubmit={this.handleSubmit}/>
+            <TopicInput name="topicText" onChange={this.handleInputChange} value={this.state.topicText} handleSubmit={this.handleSubmit}/>
+            {/* <TopicButton handleSubmit={this.handleSubmit}/> */}
             
             {this.state.topics.length ? (this.state.topics.map((topic,index)=>{
               return (

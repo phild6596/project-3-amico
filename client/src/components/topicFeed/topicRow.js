@@ -1,5 +1,5 @@
 import React from "react";
-import styling from "./topicRow.css"
+import "./topicRow.css"
 
 export const TopicRow = props => {
   return (

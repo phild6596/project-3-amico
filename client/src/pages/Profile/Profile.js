@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Grid,Row,Col} from "react-bootstrap";
 import {ProfileCard} from "../../components/profileCard/profileCard";
-import {CardBackground} from "../../components/cardBackground/cardBackground.js";
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
 import NavBar from '../../components/navBar/NavBar.js';
-import styling from './css/profile.css';
 
 const navLinks = [
   {
