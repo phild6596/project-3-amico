@@ -53,6 +53,28 @@ export const RightCard = (props) => {
                 </div>
                 <div className="card-footer"> Follow suggested people to know about their side of the story. </div>
             </div>
+
+            <div class="card card-link-list">
+                <div class="card-body">
+                <div>
+                © 2018 AMICO
+                </div>
+                <a href="">About </a>
+                <a href="">Help </a>
+                <a href="">Terms </a>
+                <a href="">Privacy </a>
+                <a href="">Cookies </a>
+                <a href="">Ads </a>
+                <a href="">Info </a>
+                <a href="">Brand </a>
+                <a href="">Blog </a>
+                <a href="">Status </a>
+                <a href="">Apps </a>
+                <a href="">Jobs </a>
+                <a href="">Advertise </a>
+                </div>
+            </div>
+
             </div>
 
         </div>
