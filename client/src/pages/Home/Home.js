@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
 import axios from "axios";
-
 import {Grid,Row,Col} from "react-bootstrap";
 import {AboutCard} from "../../components/aboutCard/aboutCard";
 import {TopicRow} from "../../components/topicFeed/topicRow";
@@ -11,11 +9,11 @@ import { TopicInput } from "../../components/topicFeed/topicInput";
 import { TopicButton } from "../../components/topicFeed/topicButton";
 import createNewTopic from "./createNewTopic.js";
 import getTopics from "./getTopics.js";
+import topicTranslate from "./topicTranslate";
 import Footer from '../../components/footer/Footer.js';
 import NavBar from '../../components/navBar/NavBar.js';
 import moment from "moment";
 import momentTimezone from "moment-timezone";
-
 import './css/home.css';
 
 const navLinks = [
@@ -39,7 +37,6 @@ class Home extends Component {
   };
 
   
-
   
   listenForTopics = ()=>{
     
@@ -48,20 +45,15 @@ class Home extends Component {
       this.setState({topics:[]});
 
       getTopics((topics)=>{
+        
+        //console.log(topics);
         topics.map((topic)=>{
          topic.timestamp = this.convertTimeStamp(topic.timestamp);
-        })
+        });
         this.setState({topics:topics});
-      })
-      //const snapObject = snapshot.val();
+      });
+      
 
-      /*for(let user in snapObject){
-        
-        for(let topic in snapObject[user]){
-         snapObject[user][topic].timestamp = this.convertTimeStamp(snapObject[user][topic].timestamp);
-         this.setState({topics:this.state.topics.concat(snapObject[user][topic])});
-        }
-      }*/
     });
   }
 
@@ -77,7 +69,7 @@ class Home extends Component {
     this.setState({
       [name] : value
     });
-    console.log(this.state.topicText);
+    
   };
 
   setCurrentUserId =(userId) => {
