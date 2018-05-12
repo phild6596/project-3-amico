@@ -7,7 +7,7 @@ export const RightCard = (props) => {
     return(
 
         <div className= "row">
-            <div className="col-md-12 col-sm-">
+            <div className="col-md-12 col-sm-12">
             <div className="alert alert-warning alert-dismissible d-none d-md-block" role="alert">
                 <button type="button" className="close" data-dismiss="alert" aria-label="Close"></button>
                 <a className="alert-link" href="profile/index.html">Visit your profile!</a>
