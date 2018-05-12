@@ -6,13 +6,8 @@ const getTopics = (callback) => {
     if(firebase.auth().currentUser) {
         firebase.auth().currentUser.getIdToken(true).then((idToken) => {
             axios.post("/topic/search", {language:"english", idToken:idToken})
-            .then((data) => {
-                console.log(data);
-                
+            .then((data) => {   
                 callback(data.data);
-                
-                
-               
             });
         }).catch((error) => {
             console.log("Error in getTopics.js", error);
