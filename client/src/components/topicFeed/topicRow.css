@@ -13,16 +13,7 @@
     color:black;
 }
 .topic-timestamp{
-    color:black;
+    color:#3097D1;
     font-size:13px;
     
 }
-
-.topic-row {
-    overflow: hidden;
-    margin-bottom:25px;
-    background-color:rgba(0, 0, 0, 0.03);
-    border:1px solid rgba(0, 0, 0, 0.125);
-    padding:10px;
-}
-

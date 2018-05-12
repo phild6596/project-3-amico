@@ -18,11 +18,11 @@ export const AboutCard = (props) => {
                     <div className="card-body">
                         <h6 className="mb-3">About</h6>
                             <ul className="list-unstyled list-spaced">
-                                <li><span className="text-muted icon glyphicon glyphicon-home mr-3"> Lives: </span>{props.user.lives}</li>
-                                <li><span className="text-muted icon glyphicon glyphicon-map-marker mr-3"> From: </span>{props.user.from}</li>
-                                <li><span className="text-muted icon glyphicon glyphicon-globe mr-3"> NativeLanguage: </span>{props.user.nativeLanguage}</li>
-                                <li><span className="text-muted icon glyphicon glyphicon-education mr-3"> Studying: </span>{props.user.studiedLanguage}</li>
-                                <li><span className="text-muted icon glyphicon glyphicon-user mr-3"> UID: </span>{props.user.uid}</li>
+                                <li><span className="text-muted icon glyphicon glyphicon-home mr-3"></span> Lives in<span className="user_props"> {props.user.lives}</span></li>
+                                <li><span className="text-muted icon glyphicon glyphicon-map-marker mr-3"></span> From<span className="user_props"> {props.user.from}</span></li>
+                                <li><span className="text-muted icon glyphicon glyphicon-globe mr-3"></span> Native Language<span className="user_props"> {props.user.nativeLanguage}</span></li>
+                                <li><span className="text-muted icon glyphicon glyphicon-education mr-3"></span> Studying<span className="user_props"> {props.user.studiedLanguage}</span></li>
+                                <li><span className="text-muted icon glyphicon glyphicon-user mr-3"></span> UID <span className="user_props"> {props.user.uid} </span></li>
                             </ul>
                     </div>
                 </div>

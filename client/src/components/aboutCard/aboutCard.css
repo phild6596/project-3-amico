@@ -1,4 +1,12 @@
-li{list-style-type: none;}
+li{
+  list-style-type: none;
+  color: rgb(72, 72, 72);
+
+}
+
+.user_props {
+  color: #3097D1;
+}
 
 .card-header {
   background-size: cover;
@@ -14,4 +22,11 @@ h3{
 
 h6 {
   color:  rgb(72, 72, 72);
+}
+
+.glyphicon {
+  font-size: 15px;
+}
+
+.icon {
 }
