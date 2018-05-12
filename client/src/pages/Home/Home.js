@@ -9,6 +9,7 @@ import { TopicInput } from "../../components/topicFeed/topicInput";
 import { TopicButton } from "../../components/topicFeed/topicButton";
 import createNewTopic from "./createNewTopic.js";
 import getTopics from "./getTopics.js";
+import topicTranslate from "./topicTranslate";
 import Footer from '../../components/footer/Footer.js';
 import NavBar from '../../components/navBar/NavBar.js';
 import moment from "moment";
@@ -36,7 +37,6 @@ class Home extends Component {
   };
 
   
-
   
   listenForTopics = ()=>{
     
@@ -48,19 +48,12 @@ class Home extends Component {
         
         //console.log(topics);
         topics.map((topic)=>{
-          topic.timestamp = this.convertTimeStamp(topic.timestamp);
-        })
-          this.setState({topics:topics});
-      })
-      //const snapObject = snapshot.val();
+         topic.timestamp = this.convertTimeStamp(topic.timestamp);
+        });
+        this.setState({topics:topics});
+      });
+      
 
-      /*for(let user in snapObject){
-        
-        for(let topic in snapObject[user]){
-         snapObject[user][topic].timestamp = this.convertTimeStamp(snapObject[user][topic].timestamp);
-         this.setState({topics:this.state.topics.concat(snapObject[user][topic])});
-        }
-      }*/
     });
   }
 

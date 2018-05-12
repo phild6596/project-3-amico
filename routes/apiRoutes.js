@@ -25,8 +25,8 @@ Router.get("/profiles", function(req, res) {
   });
 });
 Router.post("/message", function(req, res) {
-  const topicText = MessageController.createNewMessage(req.body.topicText);
-  const translatedMessage = MessageController.translateMessage(topicText.messageText,"en","es",function(data) {
+  const topic = MessageController.createNewMessage(req.body.topic);
+  const translatedMessage = MessageController.translateMessage(topic.messageText,"en","es",function(data) {
       res.send(data);
     }
   );
