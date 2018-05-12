@@ -8,6 +8,11 @@ li{
   color: #3097D1;
 }
 
+.user_id {
+  font-size: 12px;
+}
+
+
 .card-header {
   background-size: cover;
   background-image: url(../../assets/connection.jpg);
