@@ -9,6 +9,7 @@ import { TopicInput } from "../../components/topicFeed/topicInput";
 import { TopicButton } from "../../components/topicFeed/topicButton";
 import createNewTopic from "./createNewTopic.js";
 import getTopics from "./getTopics.js";
+import topicTranslate from "./topicTranslate";
 import Footer from '../../components/footer/Footer.js';
 import NavBar from '../../components/navBar/NavBar.js';
 import moment from "moment";
