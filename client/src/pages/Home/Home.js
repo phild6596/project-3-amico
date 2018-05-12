@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import {Grid,Row,Col} from "react-bootstrap";
 import {AboutCard} from "../../components/aboutCard/aboutCard";
+import {RightCard} from "../../components/rightCard/rightCard";
 import {TopicRow} from "../../components/topicFeed/topicRow";
 import firebaseConfig from "../../utils/firebase.js";
 import firebase from "firebase";
@@ -10,7 +11,6 @@ import { TopicButton } from "../../components/topicFeed/topicButton";
 import createNewTopic from "./createNewTopic.js";
 import getTopics from "./getTopics.js";
 import topicTranslate from "./topicTranslate";
-import Footer from '../../components/footer/Footer.js';
 import NavBar from '../../components/navBar/NavBar.js';
 import moment from "moment";
 import momentTimezone from "moment-timezone";
@@ -156,13 +156,10 @@ class Home extends Component {
 
           </Col>
           <Col xs={6} md={3}>
-          <AboutCard user={this.state.currentUser}/>
+          <RightCard user={this.state.currentUser}/>
           </Col>
         </Row>
         </Grid>
-        <Footer />
-
-       
       </div>
     );
   }
