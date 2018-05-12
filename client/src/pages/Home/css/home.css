@@ -8,7 +8,7 @@ button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-bloc
 body {
   background-color: rgb(232, 232, 232);
   font-family: 'Open Sans', sans-serif;
-  color: #fff;
+  color: #777;
   letter-spacing: .5px;
   font-size: 16px;
   font-weight: 300;
