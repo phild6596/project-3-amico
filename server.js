@@ -39,14 +39,14 @@ const expressFileUpload = require('express-fileupload');
 	  });
 
 
-	const db = process.env.MONGODB_URI || "mongodb://localhost/project-3-amico";
+	/*const db = process.env.MONGODB_URI || "mongodb://localhost/project-3-amico";
 	mongoose.connect(db, err => {
 	if (err) {
 		console.log("Mongo db error: ", err);
 	} else {
 		console.log("Mongo db is now connected!");
 	}
-	});
+	});*/
 	  
-Server.app.listen( Server.port);
+Server.app.listen(process.env.PORT || Server.port);
 

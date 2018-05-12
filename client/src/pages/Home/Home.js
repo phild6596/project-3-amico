@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
 import axios from "axios";
-
 import {Grid,Row,Col} from "react-bootstrap";
 import {AboutCard} from "../../components/aboutCard/aboutCard";
 import {TopicRow} from "../../components/topicFeed/topicRow";
@@ -15,7 +13,6 @@ import Footer from '../../components/footer/Footer.js';
 import NavBar from '../../components/navBar/NavBar.js';
 import moment from "moment";
 import momentTimezone from "moment-timezone";
-
 import './css/home.css';
 
 const navLinks = [
@@ -47,12 +44,15 @@ class Home extends Component {
       this.setState({topics:[]});
 
       getTopics((topics)=>{
+        
+        //console.log(topics);
         topics.map((topic)=>{
          topic.timestamp = this.convertTimeStamp(topic.timestamp);
         });
         this.setState({topics:topics});
       });
       
+
     });
   }
 
@@ -68,7 +68,7 @@ class Home extends Component {
     this.setState({
       [name] : value
     });
-    console.log(this.state.topicText);
+    
   };
 
   setCurrentUserId =(userId) => {

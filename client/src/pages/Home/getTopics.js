@@ -9,11 +9,8 @@ const getTopics = (callback) => {
             .then((data) => {
                 //console.log('Within data.data in getTopics');
                 //console.log(data.data);
-                
+
                 callback(data.data);
-                
-                
-               
             });
         }).catch((error) => {
             console.log("Error in getTopics.js", error);
